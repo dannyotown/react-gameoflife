@@ -1,0 +1,11 @@
+.controlBox {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.selectBox {
+  margin-left: 2%;
+}
