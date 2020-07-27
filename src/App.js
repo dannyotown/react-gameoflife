@@ -23,6 +23,7 @@ function App() {
     }
     return rows;
   });
+  const [updateTimer, setUpdateTimer] = useState(1000);
   const [run, setRun] = useState(false);
 
   const runningRef = useRef(run);
@@ -58,8 +59,9 @@ function App() {
         }
       });
     });
-    setTimeout(runSim, 200);
-  }, []);
+
+    setTimeout(runSim, parseInt(updateTimer));
+  }, [updateTimer]);
 
   return (
     <>
@@ -96,6 +98,7 @@ function App() {
         runningRef={runningRef}
         runSim={runSim}
         setRun={setRun}
+        setUpdateTimer={setUpdateTimer}
       />
     </>
   );
