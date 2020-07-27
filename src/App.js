@@ -55,6 +55,7 @@ function App() {
   return (
     <>
       <div className="main">
+        <div className="header">Game Of Life</div>
         <div
           className="grid"
           style={{ gridTemplateColumns: `repeat(${colNum}, 30px)` }}

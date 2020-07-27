@@ -10,10 +10,10 @@ export const Grid = ({ grid, setGrid }) => {
             <div
               key={`${i}-${k}`}
               style={{
-                width: 30,
-                height: 30,
-                backgroundColor: grid[i][k] ? "#1A535C" : undefined,
-                border: "1px #1D3557 solid",
+                width: grid[i][k] ? 29 : 30,
+                height: grid[i][k] ? 29 : 30,
+                backgroundColor: grid[i][k] ? "#FAFAFA" : undefined,
+                border: grid[i][k] ? "2px #1a1a1a solid" : "1px #FAFAFA solid",
               }}
               onClick={() => {
                 const newGrid = produce(grid, (gridCopy) => {
