@@ -1,7 +1,16 @@
 import React from "react";
 import "./css/ControlBox.css";
 
-const ControlBox = ({ run, setRun, runningRef, runSim, setUpdateTimer }) => {
+const ControlBox = ({
+  run,
+  setRun,
+  runningRef,
+  runSim,
+  setUpdateTimer,
+  colNum,
+  setGrid,
+  rowNum,
+}) => {
   const onSelectChange = (e) => {
     setUpdateTimer(e.target.value);
   };
@@ -27,6 +36,18 @@ const ControlBox = ({ run, setRun, runningRef, runSim, setUpdateTimer }) => {
           <option value="250">1/4th a Second</option>
           <option value="100">1/10th a Second</option>
         </select>
+        <button
+          style={{ minHeight: "20px", minWidth: "50px" }}
+          onClick={() => {
+            const rows = [];
+            for (let i = 0; i < rowNum; i++) {
+              rows.push(Array(colNum).fill(0));
+            }
+            setGrid(rows);
+          }}
+        >
+          Clear
+        </button>
       </div>
     </div>
   );

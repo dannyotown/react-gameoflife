@@ -98,6 +98,9 @@ function App() {
         runningRef={runningRef}
         runSim={runSim}
         setRun={setRun}
+        setGrid={setGrid}
+        colNum={colNum}
+        rowNum={rowNum}
         setUpdateTimer={setUpdateTimer}
       />
     </>
