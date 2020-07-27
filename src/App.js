@@ -1,19 +1,8 @@
 import React, { useState, useCallback, useRef } from "react";
+import { colNum, rowNum, moves } from "./components/GridConfig";
+import Grid from "./components/Grid";
 import produce from "immer";
 import ControlBox from "./components/ControlBox";
-
-const rowNum = 25;
-const colNum = 30;
-const moves = [
-  [0, 1],
-  [0, -1],
-  [1, -1],
-  [-1, 1],
-  [1, 1],
-  [-1, -1],
-  [1, 0],
-  [-1, 0],
-];
 
 function App() {
   const [grid, setGrid] = useState(() => {
@@ -70,27 +59,7 @@ function App() {
           className="grid"
           style={{ gridTemplateColumns: `repeat(${colNum}, 30px)` }}
         >
-          {grid.map((rows, i) =>
-            rows.map((columns, k) => {
-              return (
-                <div
-                  key={`${i}-${k}`}
-                  style={{
-                    width: 30,
-                    height: 30,
-                    backgroundColor: grid[i][k] ? "#1A535C" : undefined,
-                    border: "1px #1D3557 solid",
-                  }}
-                  onClick={() => {
-                    const newGrid = produce(grid, (gridCopy) => {
-                      gridCopy[i][k] = grid[i][k] ? 0 : 1;
-                    });
-                    setGrid(newGrid);
-                  }}
-                />
-              );
-            })
-          )}
+          <Grid setGrid={setGrid} grid={grid} />
         </div>
       </div>
       <ControlBox
