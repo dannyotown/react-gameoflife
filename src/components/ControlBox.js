@@ -10,6 +10,7 @@ const ControlBox = ({
   colNum,
   setGrid,
   rowNum,
+  presetGrid,
 }) => {
   const onSelectChange = (e) => {
     setUpdateTimer(e.target.value);
@@ -26,28 +27,33 @@ const ControlBox = ({
           }
         }}
       >
-        {run ? "stop" : "start"}
+        {run ? "Stop" : "Start"}
       </button>
-      <div className="selectBox">
-        <label className="label">Speed</label>
+      <button
+        style={{ minHeight: "20px", minWidth: "50px" }}
+        onClick={() => {
+          const rows = [];
+          for (let i = 0; i < rowNum; i++) {
+            rows.push(Array(colNum).fill(0));
+          }
+          setGrid(rows);
+        }}
+      >
+        Clear
+      </button>
+      <div className="box">
         <select onChange={onSelectChange}>
           <option value="1000">1 second</option>
           <option value="500">1/2 a Second</option>
           <option value="250">1/4th a Second</option>
           <option value="100">1/10th a Second</option>
         </select>
-        <button
-          style={{ minHeight: "20px", minWidth: "50px" }}
-          onClick={() => {
-            const rows = [];
-            for (let i = 0; i < rowNum; i++) {
-              rows.push(Array(colNum).fill(0));
-            }
-            setGrid(rows);
-          }}
-        >
-          Clear
-        </button>
+      </div>
+      <div className="box">
+        <select onChange={presetGrid}>
+          <option value="teninarow">10 In A Row</option>
+          <option value="teninarow">10 In A Row</option>
+        </select>
       </div>
     </div>
   );

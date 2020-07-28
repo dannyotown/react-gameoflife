@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useRef } from "react";
 import { colNum, rowNum, moves } from "./components/GridConfig";
+import teninrow from "./components/Presets";
 import Grid from "./components/Grid";
 import produce from "immer";
 import ControlBox from "./components/ControlBox";
@@ -12,6 +13,11 @@ function App() {
     }
     return rows;
   });
+  const presetGrid = (e) => {
+    if (e.target.value === "teninarow") {
+      setGrid(teninrow);
+    }
+  };
   const [updateTimer, setUpdateTimer] = useState(1000);
   const [run, setRun] = useState(false);
 
@@ -72,6 +78,7 @@ function App() {
         colNum={colNum}
         rowNum={rowNum}
         setUpdateTimer={setUpdateTimer}
+        presetGrid={presetGrid}
       />
     </>
   );

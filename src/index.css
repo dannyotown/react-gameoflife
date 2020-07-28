@@ -16,12 +16,12 @@ body {
 .header {
   text-align: center;
   font-size: 4rem;
-  background-color: #1a1a1a;
   color: white;
   margin-bottom: 1%;
 }
 
 .grid {
   display: grid;
+  background-color: #f8f9fa;
   margin: 0 auto;
 }
