@@ -1,57 +1,31 @@
 import React, { useState, useCallback, useRef } from "react";
 import { colNum, rowNum, moves } from "./components/GridConfig";
-import { teninrow, block, exploder, spaceship } from "./components/Presets";
 import Grid from "./components/Grid";
 import produce from "immer";
 import ControlBox from "./components/ControlBox";
+import PresetGrid from "./components/PresetGrids";
 
 function App() {
-  const [grid, setGrid] = useState(() => {
-    const rows = [];
-    for (let i = 0; i < rowNum; i++) {
-      rows.push(Array(colNum).fill(0));
-    }
-    return rows;
-  });
-  const presetGrid = (e) => {
-    if (e.target.value === "ten") {
-      setGrid(teninrow());
-    } else if (e.target.value === "block") {
-      setGrid(block());
-    } else if (e.target.value === "exploder") {
-      setGrid(exploder());
-    } else if (e.target.value === "spaceship") {
-      setGrid(spaceship());
-    }
+  const [grid, setGrid] = useState(() => PresetGrid());
+
+  const onSelectChange = (e) => {
+    setUpdateTimer(parseInt(e.target.value));
   };
 
-  const randomGrid = (e) => {
-    setGrid(() => {
-      const rows = [];
-      for (let i = 0; i < rowNum; i++) {
-        rows.push(Array(colNum).fill(0));
-      }
-      for (let j = 0; j < rowNum; j++) {
-        for (let k = 0; k < colNum; k++) {
-          const random = Math.random();
-          if (random > 0.5) {
-            rows[j][k] = 1;
-          }
-        }
-      }
-      return rows;
-    });
-  };
   const [updateTimer, setUpdateTimer] = useState(1000);
   const [run, setRun] = useState(false);
 
   const runningRef = useRef(run);
   runningRef.current = run;
-
+  const count = useRef(0);
+  // eslint-disable-next-line
+  const [newCount, setNewCount] = useState(0);
   const runSim = useCallback(() => {
     if (!runningRef.current) {
       return;
     }
+    count.current++;
+    setNewCount(count.current);
     setGrid((grid) => {
       return produce(grid, (gridCopy) => {
         for (let i = 0; i < grid.length; i++) {
@@ -78,8 +52,7 @@ function App() {
         }
       });
     });
-
-    setTimeout(runSim, parseInt(updateTimer));
+    setTimeout(runSim, updateTimer);
   }, [updateTimer]);
 
   return (
@@ -101,9 +74,8 @@ function App() {
         setGrid={setGrid}
         colNum={colNum}
         rowNum={rowNum}
-        setUpdateTimer={setUpdateTimer}
-        presetGrid={presetGrid}
-        randomGrid={randomGrid}
+        count={count}
+        onSelectChange={onSelectChange}
       />
     </>
   );
