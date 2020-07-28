@@ -11,6 +11,7 @@ const ControlBox = ({
   setGrid,
   rowNum,
   presetGrid,
+  randomGrid,
 }) => {
   const onSelectChange = (e) => {
     setUpdateTimer(e.target.value);
@@ -41,18 +42,26 @@ const ControlBox = ({
       >
         Clear
       </button>
+      <button
+        style={{ minHeight: "20px", minWidth: "50px" }}
+        onClick={randomGrid}
+      >
+        Random
+      </button>
       <div className="box">
         <select onChange={onSelectChange}>
           <option value="1000">1 second</option>
-          <option value="500">1/2 a Second</option>
-          <option value="250">1/4th a Second</option>
-          <option value="100">1/10th a Second</option>
+          <option value="500">0.5 a Second</option>
+          <option value="250">0.25 a Second</option>
+          <option value="100">0.1 a Second</option>
         </select>
       </div>
       <div className="box">
         <select onChange={presetGrid}>
-          <option value="teninarow">10 In A Row</option>
-          <option value="teninarow">10 In A Row</option>
+          <option value="ten">10 Cells</option>
+          <option value="block">block</option>
+          <option value="exploder">exploder</option>
+          <option value="spaceship">spaceship</option>
         </select>
       </div>
     </div>
