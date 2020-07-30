@@ -13,3 +13,9 @@
 .headerTitle {
   padding: 2rem;
 }
+
+@media screen and (max-width: 992px) {
+  .headerBox {
+    font-size: 1rem;
+  }
+}

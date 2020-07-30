@@ -4,5 +4,12 @@
   left: 0.25%;
 }
 .counter {
+  text-align: center;
   font-size: 2rem;
+}
+
+@media screen and (max-width: 992px) {
+  .counter {
+    font-size: 1.5rem;
+  }
 }

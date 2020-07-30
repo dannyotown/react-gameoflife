@@ -11,12 +11,28 @@
 
 .upDown {
   width: 100%;
-  padding: 1%;
+  min-width: 75px;
+  padding: 1.5%;
 }
 
 button {
+  margin-top: 1%;
+  border: 1px solid black;
+  background-color: white;
   font-size: 2rem;
 }
 select {
+  margin-top: 1%;
+  border: 1px solid black;
+  background-color: white;
   font-size: 2rem;
+}
+
+@media screen and (max-width: 992px) {
+  button {
+    font-size: 1rem;
+  }
+  select {
+    font-size: 1rem;
+  }
 }

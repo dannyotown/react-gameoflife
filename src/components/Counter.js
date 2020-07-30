@@ -4,7 +4,7 @@ import "./css/Counter.css";
 const Counter = ({ count }) => {
   return (
     <div className="absoluteCounter">
-      <div className="counter">{count.current}</div>
+      <div className="counter">Generation:{count.current}</div>
     </div>
   );
 };
