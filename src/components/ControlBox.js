@@ -65,10 +65,13 @@ const ControlBox = ({
                 onSelectChange(e);
               }}
             >
+              <option selected={true} disabled={true}>
+                Change Speed
+              </option>
               <option value="1000">1 second</option>
-              <option value="500">0.5 a Second</option>
-              <option value="250">0.25 a Second</option>
-              <option value="100">0.1 a Second</option>
+              <option value="500">500 milliseconds</option>
+              <option value="250">250 milliseconds</option>
+              <option value="100">100 milliseconds</option>
             </select>
             <select
               onChange={(e) => {
@@ -76,6 +79,9 @@ const ControlBox = ({
                 setGrid(PresetGrid(e.target.value));
               }}
             >
+              <option selected={true} disabled={true}>
+                Presets
+              </option>
               <option value="ten">10 Cells</option>
               <option value="block">block</option>
               <option value="exploder">exploder</option>
