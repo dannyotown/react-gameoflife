@@ -1,9 +1,9 @@
 import React, { useState, useCallback, useRef } from "react";
-import { colNum, rowNum, moves } from "./components/GridConfig";
-import Grid from "./components/Grid";
+import { colNum, rowNum, moves } from "./components/grid/GridConfig";
+import Grid from "./components/grid/Grid";
 import produce from "immer";
 import ControlBox from "./components/ControlBox";
-import PresetGrid from "./components/PresetGrids";
+import PresetGrid from "./components/grid/PresetGrids";
 
 function App() {
   const [grid, setGrid] = useState(() => PresetGrid());
@@ -66,18 +66,18 @@ function App() {
         }}
       >
         <Grid setGrid={setGrid} grid={grid} />
+        <ControlBox
+          run={run}
+          runningRef={runningRef}
+          runSim={runSim}
+          setRun={setRun}
+          setGrid={setGrid}
+          colNum={colNum}
+          rowNum={rowNum}
+          count={count}
+          onSelectChange={onSelectChange}
+        />
       </div>
-      <ControlBox
-        run={run}
-        runningRef={runningRef}
-        runSim={runSim}
-        setRun={setRun}
-        setGrid={setGrid}
-        colNum={colNum}
-        rowNum={rowNum}
-        count={count}
-        onSelectChange={onSelectChange}
-      />
     </>
   );
 }

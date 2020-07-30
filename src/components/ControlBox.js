@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./css/ControlBox.css";
-import randomGrid from "./RandomGrid";
-import PresetGrid from "./PresetGrids";
+import randomGrid from "./grid/RandomGrid";
+import PresetGrid from "./grid/PresetGrids";
 import Header from "./Header";
 import Counter from "./Counter";
 

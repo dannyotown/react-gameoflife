@@ -11,7 +11,7 @@ export const Grid = ({ grid, setGrid }) => {
               key={`${i}-${k}`}
               style={{
                 width: grid[i][k] ? "92%" : "92%",
-                height: grid[i][k] ? "95%" : "95%",
+                height: grid[i][k] ? "94%" : "94%",
                 backgroundColor: grid[i][k] ? "#343a40" : undefined,
                 border: grid[i][k] ? "none" : ".25px solid grey",
               }}
