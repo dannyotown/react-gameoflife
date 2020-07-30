@@ -57,14 +57,15 @@ function App() {
 
   return (
     <>
-      <div className="main">
-        <div className="header">Game Of Life</div>
-        <div
-          className="grid"
-          style={{ gridTemplateColumns: `repeat(${colNum}, 30px)` }}
-        >
-          <Grid setGrid={setGrid} grid={grid} />
-        </div>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: `repeat(${colNum} , 1fr)`,
+          width: "100vw",
+          height: "100vh",
+        }}
+      >
+        <Grid setGrid={setGrid} grid={grid} />
       </div>
       <ControlBox
         run={run}

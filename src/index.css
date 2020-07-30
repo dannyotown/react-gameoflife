@@ -4,24 +4,4 @@ body {
   font-family: "Kaushan Script", cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #1d1d1d;
-}
-
-.main {
-  width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-}
-
-.header {
-  text-align: center;
-  font-size: 4rem;
-  color: white;
-  margin-bottom: 1%;
-}
-
-.grid {
-  display: grid;
-  background-color: #f8f9fa;
-  margin: 0 auto;
 }

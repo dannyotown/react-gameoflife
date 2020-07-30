@@ -1,48 +1,22 @@
+.absoluteControlBox {
+  position: absolute;
+  bottom: 0.25%;
+  right: 0.25%;
+}
 .controlBox {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 1%;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+}
+
+.upDown {
+  width: 100%;
+  padding: 1%;
 }
 
 button {
-  background-color: #fafafa;
-  border: none;
-  margin: 0% 1% 0% 0%;
-  font-size: 1.5rem;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  font-size: 2rem;
 }
-
-.box select {
-  background-color: #fafafa;
-  color: black;
-  padding: 15.5px;
-  width: 200px;
-  border: none;
-  font-size: 1.5rem;
-  -webkit-appearance: button;
-  appearance: button;
-  outline: none;
-}
-
-.box::before {
-  top: 0;
-  right: 0;
-  width: 20%;
-  height: 100%;
-  text-align: center;
-  font-size: 28px;
-  line-height: 45px;
-  color: rgba(255, 255, 255, 0.5);
-  background-color: rgba(255, 255, 255, 0.1);
-  pointer-events: none;
-}
-.box {
-  margin-left: 2%;
+select {
+  font-size: 2rem;
 }

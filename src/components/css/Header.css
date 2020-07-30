@@ -1,0 +1,15 @@
+.absoluteBox {
+  position: absolute;
+  top: 0.25%;
+  left: 0.25%;
+}
+
+.headerBox {
+  font-size: 2rem;
+  opacity: 1;
+  background-color: white;
+  border: 1px solid #343a40;
+}
+.headerTitle {
+  padding: 2rem;
+}
