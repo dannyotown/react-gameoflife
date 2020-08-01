@@ -8,6 +8,8 @@ import PresetGrid from "./components/grid/PresetGrids";
 function App() {
   const [grid, setGrid] = useState(() => PresetGrid());
 
+  const [openModal, setOpenModal] = useState(true);
+
   const onSelectChange = (e) => {
     setUpdateTimer(parseInt(e.target.value));
   };
@@ -61,8 +63,8 @@ function App() {
         style={{
           display: "grid",
           gridTemplateColumns: `repeat(${colNum} , 1fr)`,
-          width: "100vw",
-          height: "100vh",
+          width: "99.5vw",
+          height: "99.5vh",
         }}
       >
         <Grid setGrid={setGrid} grid={grid} />
@@ -76,28 +78,10 @@ function App() {
           rowNum={rowNum}
           count={count}
           onSelectChange={onSelectChange}
+          openModal={openModal}
+          setOpenModal={setOpenModal}
         />
       </div>
-      <h5>Rules:</h5>
-      <ol>
-        <li>
-          Any live cell with fewer than two live neighbors dies, as if caused by
-          under-population.
-        </li>{" "}
-        <li>
-          {" "}
-          Any live cell with two or three live neighbors lives on to the next
-          generation.{" "}
-        </li>
-        <li>
-          Any live cell with more than three live neighbors dies, as if by
-          over-population..{" "}
-        </li>
-        <li>
-          Any dead cell with exactly three live neighbors becomes a live cell,
-          as if by reproduction.
-        </li>
-      </ol>
     </>
   );
 }

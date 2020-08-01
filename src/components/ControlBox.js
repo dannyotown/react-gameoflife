@@ -4,6 +4,7 @@ import randomGrid from "./grid/RandomGrid";
 import PresetGrid from "./grid/PresetGrids";
 import Header from "./Header";
 import Counter from "./Counter";
+import RulesModal from "./RulesModal";
 
 const ControlBox = ({
   run,
@@ -15,6 +16,8 @@ const ControlBox = ({
   setGrid,
   rowNum,
   count,
+  openModal,
+  setOpenModal,
 }) => {
   const [boxView, setBoxView] = useState(true);
 
@@ -28,6 +31,7 @@ const ControlBox = ({
         </button>
         {boxView ? (
           <div className="controlBox">
+            <RulesModal openModal={openModal} setOpenModal={setOpenModal} />
             <button
               onClick={() => {
                 setRun(!run);
@@ -65,9 +69,7 @@ const ControlBox = ({
                 onSelectChange(e);
               }}
             >
-              <option selected={true} disabled={true}>
-                Change Speed
-              </option>
+              <option hidden>Speed</option>
               <option value="1000">1 second</option>
               <option value="500">500 milliseconds</option>
               <option value="250">250 milliseconds</option>
@@ -79,9 +81,7 @@ const ControlBox = ({
                 setGrid(PresetGrid(e.target.value));
               }}
             >
-              <option selected={true} disabled={true}>
-                Presets
-              </option>
+              <option hidden>Presets</option>
               <option value="ten">10 Cells</option>
               <option value="block">block</option>
               <option value="exploder">exploder</option>

@@ -1,0 +1,35 @@
+.rulesModal {
+  position: fixed;
+  left: 0;
+  top: 25%;
+  width: 100%;
+}
+
+.rulesFlex {
+  width: 75%;
+  margin: 0 auto;
+  background-color: white;
+  padding: 1%;
+  border: 1px solid black;
+}
+.closeButton {
+  font-size: 1.5rem;
+  padding: 0.5%;
+  margin-bottom: 1%;
+  border-radius: 1px;
+}
+
+.rulesHeader {
+  font-size: 2rem;
+  padding: 1%;
+  margin: 0;
+}
+.listNone {
+  list-style-type: none;
+}
+.rulesText {
+  text-align: center;
+}
+.rulesModalHide {
+  display: none;
+}

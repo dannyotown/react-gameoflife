@@ -2,10 +2,14 @@
   position: absolute;
   bottom: 0.25%;
   left: 0.25%;
+  width: 7%;
 }
 .counter {
+  background-color: white;
+  padding: 1%;
+  border: 0.25px solid black;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 @media screen and (max-width: 992px) {
