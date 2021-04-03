@@ -16,9 +16,10 @@ function App() {
 
   const [updateTimer, setUpdateTimer] = useState(1000);
   const [run, setRun] = useState(false);
-
   const runningRef = useRef(run);
+  const speedRef = useRef(updateTimer);
   runningRef.current = run;
+  speedRef.current = updateTimer;
   const count = useRef(0);
   // eslint-disable-next-line
   const [newCount, setNewCount] = useState(0);
@@ -28,6 +29,7 @@ function App() {
     }
     count.current++;
     setNewCount(count.current);
+    console.log("running");
     setGrid((grid) => {
       return produce(grid, (gridCopy) => {
         for (let i = 0; i < grid.length; i++) {
@@ -54,8 +56,8 @@ function App() {
         }
       });
     });
-    setTimeout(runSim, updateTimer);
-  }, [updateTimer]);
+    setTimeout(runSim, speedRef.current);
+  }, []);
 
   return (
     <>
